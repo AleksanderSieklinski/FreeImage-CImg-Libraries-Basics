@@ -1,7 +1,7 @@
 #include "GUIMyFrame1.h"
 
 void GUIMyFrame1::Repaint() {
-    
+
     m_image.Rescale(m_panel1->GetSize().x, m_panel1->GetSize().y);
     wxBitmap m_bitmap(m_image);
     wxClientDC dc(m_panel1);
@@ -39,15 +39,15 @@ void GUIMyFrame1::On_click1(wxCommandEvent& event) {
     Repaint();
 }
     
-
+//cenzura
 void GUIMyFrame1::On_click2(wxCommandEvent& event) {
     event.Skip();
 }
-
+//erode
 void GUIMyFrame1::On_click3(wxCommandEvent& event) {
     event.Skip();
 }
-
+//animacja
 void GUIMyFrame1::On_check(wxCommandEvent& event) {
     event.Skip();
 }

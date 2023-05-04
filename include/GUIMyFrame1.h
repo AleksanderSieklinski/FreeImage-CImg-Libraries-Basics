@@ -1,6 +1,5 @@
 #pragma once
 #include "GUI.h"
-#include "TinyEXIF.h"
 #include <iostream>
 #include <fstream>
 #include <string>
