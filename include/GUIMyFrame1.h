@@ -1,5 +1,6 @@
 #pragma once
 #include "GUI.h"
+#include "CImg.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -46,11 +47,16 @@ class GUIMyFrame1 : public MyFrame1 {
 		virtual void On_click3( wxCommandEvent& event );
 		virtual void On_check( wxCommandEvent& event );
         void Repaint();
+		cimg_library::CImg<unsigned char> WxToCImg(wxImage& image);
+		wxImage CImgToWx(cimg_library::CImg<unsigned char>& image);
 
 	public:
 
 		GUIMyFrame1( wxWindow* parent): MyFrame1(parent){wxInitAllImageHandlers(); m_panel1->SetBackgroundColour(wxColor(*wxBLACK));};
 		~GUIMyFrame1(){};
         wxImage m_image;
+		std::vector<wxImage> m_images;
         wxString exif;
+		bool censored = false, eroded = false, animated = false;
+		wxBitmap _animationFrames[240];
 };
