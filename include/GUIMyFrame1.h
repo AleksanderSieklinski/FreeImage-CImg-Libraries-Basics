@@ -59,7 +59,7 @@ class GUIMyFrame1 : public MyFrame1 {
 		std::vector<wxImage> m_images;
         wxString exif;
 		bool censored = false, eroded = false, animated = false;
-		wxBitmap RenderedFrames[240];
+		wxBitmap RenderedFrames[60];
 		int frame_index = 0;
 		int tick_delay = 0;
 };

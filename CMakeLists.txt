@@ -4,6 +4,10 @@ project (main)
 
 find_package(wxWidgets REQUIRED COMPONENTS net core base)
 
+set(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
+set(BUILD_SHARED_LIBS OFF)
+set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++ -static")
+set(CMAKE_CXX_FLAGS "-static-libgcc -static-libstdc++ -static")
 
 # prevent for in-source building
 set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
