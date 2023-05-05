@@ -8,7 +8,7 @@ void GUIMyFrame1::Repaint() {
 	if (animated) {
 		dc.DrawBitmap(RenderedFrames[frame_index], 0, 0);
 		tick_delay = (tick_delay + 1) % 8;
-		if (tick_delay >= 7) frame_index = (frame_index + 1) % 60;
+		if (tick_delay >= 7) frame_index = (frame_index + 1) % 240;
 		RefreshRect(wxRect(0,0,1,1),false);
 		return;
 	}
@@ -159,16 +159,16 @@ void GUIMyFrame1::On_check(wxCommandEvent& event) {
 		cimg_library::CImg<unsigned char> img = WxToCImg(m_image);
 		float color_spec[3] = { 1.0f, 1.0f, 1.0f };
 
-		for (int i = 0; i < 60; i++) {
+		for (int i = 0; i < 240; i++) {
             cimg_library::CImg<float> mask1(m_image.GetSize().x, m_image.GetSize().y, 1,3);
             cimg_library::CImg<float> mask2(m_image.GetSize().x, m_image.GetSize().y, 1,3);
-			mask1.draw_gaussian((m_image.GetSize().x / 2) + (m_image.GetSize().x * 0.25) * cos(i * M_PI / 60.0f),(m_image.GetSize().y / 2) + (m_image.GetSize().y * 0.25) * sin(i * M_PI / 60.0f),140.0f,color_spec,0.7f);
-			mask2.draw_gaussian((m_image.GetSize().x / 2) + (m_image.GetSize().x * 0.25) * cos((i + 60.0f) * M_PI / 60.0f),(m_image.GetSize().y / 2) + (m_image.GetSize().y * 0.25) * sin((i + 60.0f) * M_PI / 60.0f),140.0f,color_spec,0.7f);
+			mask1.draw_gaussian((m_image.GetSize().x / 2) + (m_image.GetSize().x * 0.25) * cos(i * M_PI / 240.0f),(m_image.GetSize().y / 2) + (m_image.GetSize().y * 0.25) * sin(i * M_PI / 240.0f),140.0f,color_spec,0.7f);
+			mask2.draw_gaussian((m_image.GetSize().x / 2) + (m_image.GetSize().x * 0.25) * cos((i + 240.0f) * M_PI / 240.0f),(m_image.GetSize().y / 2) + (m_image.GetSize().y * 0.25) * sin((i + 240.0f) * M_PI / 240.0f),140.0f,color_spec,0.7f);
 			mask1 += mask2;
 
 			cimg_library::CImg<float> img2 = img;
 			img2.mul(mask1);
-			RenderedFrames[59 - i] = wxBitmap(CImgToWx(img2));
+			RenderedFrames[239 - i] = wxBitmap(CImgToWx(img2));
 		}
     }
     else {
