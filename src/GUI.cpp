@@ -65,7 +65,6 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer8exif;
 	bSizer8exif = new wxBoxSizer( wxVERTICAL );
 
-	//it should fit from under the buttons to the bottom of the window
 	m_panel2 = new wxPanel( this, wxID_ANY, wxDefaultPosition,wxSize(300,500), wxTAB_TRAVERSAL );
 	m_panel2->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_HIGHLIGHTTEXT ) );
 	

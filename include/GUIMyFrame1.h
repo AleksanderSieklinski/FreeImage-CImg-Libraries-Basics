@@ -1,6 +1,7 @@
 #pragma once
 #include "GUI.h"
 #include "CImg.h"
+#include "TinyEXIF.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -48,7 +49,7 @@ class GUIMyFrame1 : public MyFrame1 {
 		virtual void On_check( wxCommandEvent& event );
         void Repaint();
 		cimg_library::CImg<unsigned char> WxToCImg(wxImage& image);
-		wxImage CImgToWx(cimg_library::CImg<unsigned char>& image);
+		wxImage CImgToWx(cimg_library::CImg<unsigned char> image);
 
 	public:
 
@@ -58,5 +59,7 @@ class GUIMyFrame1 : public MyFrame1 {
 		std::vector<wxImage> m_images;
         wxString exif;
 		bool censored = false, eroded = false, animated = false;
-		wxBitmap _animationFrames[240];
+		wxBitmap RenderedFrames[240];
+		int frame_index = 0;
+		int tick_delay = 0;
 };
